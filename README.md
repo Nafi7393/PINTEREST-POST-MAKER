@@ -1,62 +1,57 @@
 # Pinterest Post Maker
 
-This Python script generates Pinterest-style post images using background images and text from a CSV file. Each generated post combines artistic backgrounds with overlaid text, suitable for social media sharing.
-
-## Examples
-
-### Top Row
-
-![Post 1](output/post_1.png) ![Post 2](output/post_2.png) ![Post 3](output/post_3.png)
-
-- **Description**: Examples showcasing three posts side by side.
-- **Details**: Each post combines a different background image with overlaid text. The text color and placement vary to create visually appealing posts.
-
-### Bottom Row
-
-![Post 4](output/post_4.png) ![Post 5](output/post_5.png)
-
-- **Description**: More examples demonstrating the versatility of the script.
-- **Details**: These posts utilize different fonts, text alignments, and background images to showcase various design possibilities.
-
-## Usage
-
-To use the script and generate your own Pinterest-style posts:
-
-1. **Clone the Repository**:
-   ```
-   git clone https://github.com/Nafi7393/PINTEREST-POST-MAKER.git
-   cd PINTEREST-POST-MAKER
-   ```
-
-2. **Prepare Your Data**:
-   - Place your background images in the `background_images` folder.
-   - Create a CSV file (`pin_text.csv`) with each line containing the text for one post.
-
-3. **Run the Script**:
-   - Adjust parameters in the `if __name__ == "__main__":` block of `main.py` as needed (e.g., file paths, output folder, max limit).
-   - Execute the script:
-     ```
-     python main.py
-     ```
-
-4. **Output**:
-   - Generated images will be saved in the `output` folder.
+This Python script generates Pinterest-style post images by overlaying text on background images. It utilizes threading for concurrent image generation and supports customization of text styling.
 
 ## Requirements
 
 - Python 3.x
 - PIL (Python Imaging Library)
+- `impact.ttf` font file (or specify your own font)
+- Background images in the `background_images` folder
+- Input text lines in a CSV file (`pin_text.csv`)
 
-Ensure you have the required libraries installed. You can install them using pip:
+## Installation
+
+1. Clone the repository:
+   ```
+   git clone https://github.com/Nafi7393/PINTEREST-POST-MAKER.git
+   cd PINTEREST-POST-MAKER
+   ```
+
+2. Install dependencies:
+   ```
+   pip install pillow
+   ```
+
+3. Place your background images in the `background_images` folder.
+
+## Usage
+
+Modify `pin_text.csv` with your desired text lines. Then run the script to generate Pinterest-style images:
+
 ```
-pip install pillow
+python main.py
 ```
+
+Adjust parameters in `main.py` such as `max_limit` in `fire_pins` function for batch image generation.
+
+## Example Images
+
+|                                 |                                  |                                  |
+|---------------------------------|----------------------------------|----------------------------------|
+| ![Example 1](output/post_2.png) | ![Example 2](output/post_3.png)  | ![Example 2](output/post_13.png) |
+| ![Example 1](output/post_9.png) | ![Example 1](output/post_10.png) | ![Example 1](output/post_8.png)  |
+
+## Customization
+
+- **Text Styling**: Modify `text_color`, `font_path`, `base_font_size`, and `font_increase_size` in `PinMaker` class for different text effects.
+- **Backgrounds**: Add or change background images in `background_images` folder to create diverse post styles.
 
 ## Notes
 
-- The script uses multithreading to speed up image generation. Adjust `max_limit` in `fire_pins` function if needed.
-- Customize the font, text colors, and other parameters in `PinMaker` class as per your preferences.
+- Ensure the CSV file (`pin_text.csv`) is correctly formatted with each line of text in the first column.
+- The script uses threading for concurrent image processing, ensuring efficient batch image creation.
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
